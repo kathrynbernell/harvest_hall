@@ -1,0 +1,2 @@
+class FruitFarmer < ApplicationRecord
+end

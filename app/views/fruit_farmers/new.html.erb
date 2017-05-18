@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @fruit_farmer.errors.any? %>
+  <% @fruit_farmer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Fruit Farmer</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_fruit_farmer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for fruit_id -->
+      <div class="form-group">
+        <label for="fruit_id" class="control-label">
+          Fruit
+        </label>
+
+        <input type="text" id="fruit_id" name="fruit_id" placeholder="Fruit" class="form-control" value="<%= @fruit_farmer.fruit_id %>">
+      </div>
+
+      <!-- Label and input for farmer_id -->
+      <div class="form-group">
+        <label for="farmer_id" class="control-label">
+          Farmer
+        </label>
+
+        <input type="text" id="farmer_id" name="farmer_id" placeholder="Farmer" class="form-control" value="<%= @fruit_farmer.farmer_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Fruit Farmer
+      </button>
+      or
+      <a href="/fruit_farmers">Cancel</a>
+    </form>
+  </div>
+</div>

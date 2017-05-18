@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @fruit.errors.any? %>
+  <% @fruit.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Fruit</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_fruit" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @fruit.name %>">
+      </div>
+
+      <!-- Label and input for harvest_start_date -->
+      <div class="form-group">
+        <label for="harvest_start_date" class="control-label">
+          Harvest start date
+        </label>
+
+        <input type="text" id="harvest_start_date" name="harvest_start_date" placeholder="Harvest start date" class="form-control" value="<%= @fruit.harvest_start_date %>">
+      </div>
+
+      <!-- Label and input for harvest_end_date -->
+      <div class="form-group">
+        <label for="harvest_end_date" class="control-label">
+          Harvest end date
+        </label>
+
+        <input type="text" id="harvest_end_date" name="harvest_end_date" placeholder="Harvest end date" class="form-control" value="<%= @fruit.harvest_end_date %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Fruit
+      </button>
+      or
+      <a href="/fruits">Cancel</a>
+    </form>
+  </div>
+</div>

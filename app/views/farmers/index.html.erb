@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Farmers
+    <a href="/farmers/new" class="btn btn-lg btn-success">New Farmer</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @farmers.each do |farmer| %>
+      <tr>
+        <td><%= farmer.name %></td>
+        <td><%= farmer.location %></td>
+        <td><%= farmer.image %></td>
+        <td>
+          <a href="/farmers/<%= farmer.id %>" class="btn btn-primary">Show</a>
+          <a href="/farmers/<%= farmer.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_farmer/<%= farmer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
