@@ -23,7 +23,7 @@
         <label for="fruit_id" class="control-label">
           Fruit
         </label>
-
+<%= select_tag("fruit_id", options_from_collection_for_select(Fruit.all, :id, :name, @fruit_farmer.fruit_id), :class => "form-control") %>
         <input type="text" id="fruit_id" name="fruit_id" placeholder="Fruit" class="form-control" value="<%= @fruit_farmer.fruit_id %>">
       </div>
 
@@ -33,7 +33,9 @@
           Farmer
         </label>
 
-        <input type="text" id="farmer_id" name="farmer_id" placeholder="Farmer" class="form-control" value="<%= @fruit_farmer.farmer_id %>">
+
+
+      <input type="text" id="farmer_id" name="farmer_id" placeholder="Farmer" class="form-control" value="<%= @fruit_farmer.farmer_id %>">
       </div>
 
       <button class="btn btn-warning">
