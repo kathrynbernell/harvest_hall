@@ -16,8 +16,8 @@
 
       <% @fruit_farmers.each do |fruit_farmer| %>
       <tr>
-        <td><%= fruit_farmer.fruit_id %></td>
-        <td><%= fruit_farmer.farmer_id %></td>
+        <td><%= fruit_farmer.fruit.name %></td>
+        <td><%= fruit_farmer.farmer.name %></td>
         <td>
           <a href="/fruit_farmers/<%= fruit_farmer.id %>" class="btn btn-primary">Show</a>
           <a href="/fruit_farmers/<%= fruit_farmer.id %>/edit" class="btn btn-warning">Edit</a>

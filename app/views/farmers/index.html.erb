@@ -15,13 +15,16 @@
         <th>Actions</th>
       </tr>
 
-      
+
 
       <% @farmers.each do |farmer| %>
       <tr>
         <td><%= farmer.name %></td>
         <td><%= farmer.location %></td>
-        <td><%= farmer.image %></td>
+        <td><img src="<%=farmer.image%>" alt="farmer image" height="42" width="42"></td>
+
+
+
         <td>
           <a href="/farmers/<%= farmer.id %>" class="btn btn-primary">Show</a>
           <a href="/farmers/<%= farmer.id %>/edit" class="btn btn-warning">Edit</a>
